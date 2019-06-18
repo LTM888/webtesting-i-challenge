@@ -8,10 +8,43 @@ module.exports = {
 const item = {name:'' , durability:'', enhancemet:''};
 
 function succeed(item) {
-  return { ...item };
+  if (item !== 20) {
+    item = {
+      ... item,
+      enhancemet: item + 1,
+      durability: item
+    }
+    return { ...item };
+  } else {
+    item = {
+      ... item,
+      enhancemet: item,
+      durability: item
+    }
+    if(item.enhancement > 16){
+      item.enhancement --;
+    }
+  
+    return { ...item };
+  }
 }
+  
+
 
 function fail(item) {
+  item = {
+    ...item,
+    enhancemet: item,
+    durability: item
+  }
+  if(item.enhancemet < 15) {
+    item.durability -= 5;
+  }else{
+    item.durability-=10;
+  }
+  if{
+
+  }
   return { ...item };
 }
 
