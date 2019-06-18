@@ -5,6 +5,8 @@ module.exports = {
   get,
 };
 
+const item = {name:'' , durability:'', enhancemet:''};
+
 function succeed(item) {
   return { ...item };
 }
@@ -14,7 +16,9 @@ function fail(item) {
 }
 
 function repair(item) {
-  return { ...item };
+  item = {...item, durability: 100};
+
+    return {...item};
 }
 
 function get(item) {
