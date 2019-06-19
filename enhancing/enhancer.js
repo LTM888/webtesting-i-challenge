@@ -5,53 +5,23 @@ module.exports = {
   get,
 };
 
-const item = {name:'' , durability:'', enhancemet:''};
-
 function succeed(item) {
-  if (item !== 20) {
-    item = {
-      ... item,
-      enhancemet: item + 1,
-      durability: item
-    }
-    return { ...item };
-  } else {
-    item = {
-      ... item,
-      enhancemet: item,
-      durability: item
-    }
-    if(item.enhancement > 16){
-      item.enhancement --;
-    }
-  
-    return { ...item };
+  if(item.enhcancement <= 19){
+    const newItem = {
+      enhcancement: item.enhcancement + 1
+    };
+    return newItem;
+  }else{
+    return { ...item, enhcancement: 20 }
   }
 }
-  
-
 
 function fail(item) {
-  item = {
-    ...item,
-    enhancemet: item,
-    durability: item
-  }
-  if(item.enhancemet < 15) {
-    item.durability -= 5;
-  }else{
-    item.durability-=10;
-  }
-  if{
-
-  }
   return { ...item };
 }
 
 function repair(item) {
-  item = {...item, durability: 100};
-
-    return {...item};
+  return { ...item, durability: 100 };
 }
 
 function get(item) {
