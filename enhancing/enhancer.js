@@ -17,8 +17,33 @@ function succeed(item) {
 }
 
 function fail(item) {
-  return { ...item };
+  if (item.enhcancement < 15){
+    const newItem = {
+      name: item.name,
+      durability: item.durability -5,
+      enhcancement: item.enhcancement
+    };
+    return newItem;
+  } else if (item.enhancement > 16) {
+    const newItem = {
+      name: item.name,
+      durability: item.durability - 10,
+      enhancement: item.enhancement -1
+    };
+    return newItem;
+  } else if (item.enhancement > 14) {
+    const newItem = {
+      name: item.name,
+      durability: item.durability - 10,
+      enhancement: item.enhancement 
+    };
+    return newItem;
+  }
+  return item;
 }
+
+  
+
 
 function repair(item) {
   return { ...item, durability: 100 };
